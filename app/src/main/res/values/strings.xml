@@ -2,5 +2,7 @@
     <string name="app_name">bookshelf_firebase</string>
 
     //misc
-    <string name="descricao">Descrição</string>
+    <string name="name">Nome do Livro</string>
+    <string name="author">Autor:</string>
+    <string name="quantity">Quantidade</string>
 </resources>
