@@ -22,7 +22,7 @@ public class BookAdapter extends FirebaseRecyclerAdapter<Livro,BookAdapter.BookH
     @Override
     protected void onBindViewHolder(@NonNull BookHolder bookHolder, int i, @NonNull Livro livro) {
         bookHolder.txtViewTitle.setText(livro.getNome());
-        bookHolder.txtViewStatus.setText("pag."+String.valueOf(livro.getQuantidade())); //mudar aqui
+        bookHolder.txtViewStatus.setText("pag."+String.valueOf(livro.getQuantidade()));
         bookHolder.txtViewAutor.setText(livro.getStatus());
     }
 
@@ -32,6 +32,10 @@ public class BookAdapter extends FirebaseRecyclerAdapter<Livro,BookAdapter.BookH
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_livro,
                 parent,false);
         return new BookHolder(v);
+    }
+
+    public void deleteItem(int position){
+        getSnapshots().getSnapshot(position).getRef().removeValue();
     }
 
     class BookHolder extends RecyclerView.ViewHolder{
