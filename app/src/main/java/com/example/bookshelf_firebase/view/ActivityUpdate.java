@@ -95,6 +95,7 @@ public class ActivityUpdate extends AppCompatActivity {
                 ref.child(saveName).child("autor").setValue(livro.getAutor());
                 ref.child(saveName).child("quantidade").setValue(livro.getQuantidade());
                 ref.child(saveName).child("status").setValue(livro.getStatus());
+                finish();
 
             }
         });

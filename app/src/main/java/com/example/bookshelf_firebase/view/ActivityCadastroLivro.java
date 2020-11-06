@@ -54,6 +54,7 @@ public class ActivityCadastroLivro extends AppCompatActivity {
                 Livro livro = getLivroForm();
                 if(getLivroForm() != null){
                     databaseReference.child("pessoa").child(livro.getNome()).setValue(livro); //sim chamei o child de pessoa
+                    finish();
                 }                                                                             //pq tava usando m.de. bras cubas de livro
             }                                                                                 // e isso me deixou confuso
         });
