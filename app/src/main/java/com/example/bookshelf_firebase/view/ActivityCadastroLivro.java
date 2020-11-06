@@ -53,9 +53,9 @@ public class ActivityCadastroLivro extends AppCompatActivity {
             public void onClick(View view) {
                 Livro livro = getLivroForm();
                 if(getLivroForm() != null){
-                    databaseReference.child("pessoa").child(livro.getNome()).setValue(livro);
-                }
-            }
+                    databaseReference.child("pessoa").child(livro.getNome()).setValue(livro); //sim chamei o child de pessoa
+                }                                                                             //pq tava usando m.de. bras cubas de livro
+            }                                                                                 // e isso me deixou confuso
         });
     }
 

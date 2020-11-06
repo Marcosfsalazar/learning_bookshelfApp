@@ -52,12 +52,13 @@ public class MainActivity extends AppCompatActivity {
                 .setQuery(query,Livro.class)
                 .build();
 
-        adapter = new BookAdapter(options);
+        adapter = new BookAdapter(options,getApplicationContext());
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
                 ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT) {

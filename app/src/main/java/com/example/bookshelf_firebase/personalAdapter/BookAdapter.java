@@ -1,5 +1,7 @@
 package com.example.bookshelf_firebase.personalAdapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,13 +12,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bookshelf_firebase.R;
 import com.example.bookshelf_firebase.model.Livro;
+import com.example.bookshelf_firebase.view.ActivityCadastroLivro;
+import com.example.bookshelf_firebase.view.ActivityUpdate;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 public class BookAdapter extends FirebaseRecyclerAdapter<Livro,BookAdapter.BookHolder> {
+    Context context;
 
-    public BookAdapter(@NonNull FirebaseRecyclerOptions<Livro> options) {
+    public BookAdapter(@NonNull FirebaseRecyclerOptions<Livro> options, Context context) {
         super(options);
+        this.context = context;
     }
 
     @Override
@@ -24,6 +30,16 @@ public class BookAdapter extends FirebaseRecyclerAdapter<Livro,BookAdapter.BookH
         bookHolder.txtViewTitle.setText(livro.getNome());
         bookHolder.txtViewStatus.setText("pag."+String.valueOf(livro.getQuantidade()));
         bookHolder.txtViewAutor.setText(livro.getStatus());
+
+        bookHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, ActivityUpdate.class);
+                intent.putExtra("livroNome",getRef(i).getKey());
+                context.startActivity(intent);
+            }
+        });
+
     }
 
     @NonNull
