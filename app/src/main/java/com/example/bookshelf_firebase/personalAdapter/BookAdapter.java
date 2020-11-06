@@ -22,8 +22,8 @@ public class BookAdapter extends FirebaseRecyclerAdapter<Livro,BookAdapter.BookH
     @Override
     protected void onBindViewHolder(@NonNull BookHolder bookHolder, int i, @NonNull Livro livro) {
         bookHolder.txtViewTitle.setText(livro.getNome());
-        bookHolder.txtViewStatus.setText(livro.getStatus());
-        bookHolder.txtViewAutor.setText(livro.getAutor());
+        bookHolder.txtViewStatus.setText("pag."+String.valueOf(livro.getQuantidade())); //mudar aqui
+        bookHolder.txtViewAutor.setText(livro.getStatus());
     }
 
     @NonNull

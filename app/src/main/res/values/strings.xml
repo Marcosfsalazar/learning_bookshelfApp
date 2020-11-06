@@ -4,7 +4,7 @@
     //misc
     <string name="name">Nome do Livro</string>
     <string name="author">Autor:</string>
-    <string name="quantity">Quantidade</string>
+    <string name="quantity">Pag. Atual</string>
 
     //buttons
     <string name="buttonSalvar">Salvar</string>
